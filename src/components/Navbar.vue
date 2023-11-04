@@ -34,6 +34,12 @@
         </RouterLink>
 
         </div>      
+        <div class="user-icon"> 
+                 <RouterLink to="/ticket" class="custom-link">
+          <i class="fas fa-user"></i> Tickets
+        </RouterLink>
+
+        </div>      
       
         <div class="user-option">
           <i class="fas fa-user-circle"></i>  Perfil
