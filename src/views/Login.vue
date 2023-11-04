@@ -1,6 +1,8 @@
 <template>
-    <div class="text-white" style="background-color: #123456;">
-    <div class="d-flex justify-content-center py-5">
+<Navbar></Navbar>
+
+    <div class="text-white">
+    <div class="d-flex justify-content-center py-3">
           <img src="https://bnetcmsus-a.akamaihd.net/cms/blog_header/ji/JIJBTTH17N8E1623121182386.png" style="width:20rem;">
         </div>
     <div class="container d-flex justify-content-center py-5">
@@ -17,7 +19,7 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
   </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
       </form>
     </div>
 </div>
@@ -25,22 +27,22 @@
 <script>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import Navbar from '../components/Navbar.vue';
 
 export default {
-  setup() {
-    const isLoggedIn = ref(false);
-    const router = useRouter();
-
-    const authenticateAndRedirect = () => {
-      isLoggedIn.value = true;
-      localStorage.setItem('isLoggedIn', isLoggedIn.value);
-      router.push('/');
-    };
-
-    return {
-      authenticateAndRedirect,
-    };
-  },
+    setup() {
+        const isLoggedIn = ref(false);
+        const router = useRouter();
+        const authenticateAndRedirect = () => {
+            isLoggedIn.value = true;
+            localStorage.setItem('isLoggedIn', isLoggedIn.value);
+            router.push('/');
+        };
+        return {
+            authenticateAndRedirect,
+        };
+    },
+    components: { Navbar }
 };
 </script>
 <style scoped>

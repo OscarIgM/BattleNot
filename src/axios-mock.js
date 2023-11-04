@@ -11,11 +11,6 @@ password:"12345",
 
 
 ];
-
-
-
-
-
 //DATOS PAGINA
 const imagePagina=[
   {imagenId:1,
@@ -32,8 +27,6 @@ const productos = [
   {
     id: 1,
     nombre: "World of lol",
-    rating: 4.5,
-    cant_rates: 50,
     descripcion:
       "litia, cupiditate eum aspe repellendus praesentium nihil nemo quod repellat, similique accusantium enim?",
     imagen: "https://www.latercera.com/resizer/GUH5NGxq-4-M9I-uK9aGGNqAUuE=/900x600/smart/cloudfront-us-east-1.images.arcpublishing.com/copesa/U35WGFI7HBCEZPWJXCOTXK5GFQ.jpg",
@@ -42,8 +35,6 @@ const productos = [
   {
     id: 2,
     nombre: "Diabolos 4",
-    rating: 1.8,
-    cant_rates: 101,
     descripcion:
       "windows, macOs",
     imagen:
@@ -53,10 +44,8 @@ const productos = [
   {
     id: 3,
     nombre: "Los Vikingos Perdidos",
-    rating: 3.8,
-    cant_rates: 101,
     descripcion:
-      "Corre el minecraft a 4k",
+      "Windows MacOS",
     imagen:
       "https://i.ytimg.com/vi/m2m8EkY7JZU/maxresdefault.jpg",
     precio: 75.50,
@@ -64,8 +53,6 @@ const productos = [
   {
     id: 4,
     nombre: "Overwacho 3",
-    rating: 2.8,
-    cant_rates: 101,
     descripcion:
       "",
     imagen:
@@ -75,8 +62,6 @@ const productos = [
   {
     id: 5,
     nombre: "World Of Warcraft: Classic",
-    rating: 1.2,
-    cant_rates: 101,
     descripcion:
       "",
     imagen:
@@ -86,8 +71,6 @@ const productos = [
   {
     id: 6,
     nombre: "Starcraft:2",
-    rating: 3.3,
-    cant_rates: 101,
     descripcion:
       "",
     imagen:

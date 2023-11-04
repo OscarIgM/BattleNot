@@ -20,7 +20,7 @@
                                 <p class="mx-5">Texto de prueba?</p>
                             </div>
                             <div class="d-flex flex-row mb-5">
-                                <p class="text-primary" style="font-weight: bold;">Nombre Usuario 2</p>
+                                <p class="text-primary" style="font-weight: bold;">Administrador/Soporte</p>
                                 <p class="mx-5">Texto de prueba?</p>
                             </div>
                         </div>
