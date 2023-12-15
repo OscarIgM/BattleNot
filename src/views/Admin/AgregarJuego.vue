@@ -21,7 +21,7 @@
             </div>
             <div class="mb-3">
             <label for="imagen" class="form-label">Imagen url</label>
-            <input type="text" class="form-control" id="imagen" />
+            <input v-model="gameDataToSend.imageUrl" type="text" class="form-control" id="imagen" />
           </div>
            
             <div class="d-grid gap-2">
@@ -50,24 +50,24 @@ const gameDataToSend=ref({
 title:'',
 description:'',
 price:'',
-imageId:'',
+imageUrl:'',
 });
 
 const submitPublish = async () => {
   try {
 
-    const gameDataToSend = { 
-      title: gameDataToSend.value.name,
+    const gameDataToSend2 = { 
+      title: gameDataToSend.value.title,
       description: gameDataToSend.value.description,
       price: gameDataToSend.value.price,
-      imageId: gameDataToSend.imageId, 
+      imageUrl: gameDataToSend.value.imageUrl, 
     };
-console.log('producto publicado', gameDataToSendToSend);
-    const response = await axios.post('http://localhost:3003/games', gameDataToSendToSend);
+console.log('producto publicado', gameDataToSend2);
+    const response = await axios.post('http://localhost:3003/games', gameDataToSend2);
 
     if (response.data) {
       console.log('Registro exitoso', response.data);
-      router.push('home');
+      router.push('/');
     } else {
       console.error('La respuesta del servidor no contiene datos:', response);
     }
