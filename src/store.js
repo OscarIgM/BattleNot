@@ -53,6 +53,8 @@ const store = createStore({
         commit('clearAuthData');
         console.log("Cierre sesión exitoso");
         router.push({ name: 'home' });
+        window.location.reload();
+
       } catch (error) {
         console.log("Error al cerrar sesión", error);
       }

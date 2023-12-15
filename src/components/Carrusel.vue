@@ -31,13 +31,17 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios'; 
- const imagen=ref([]);
-(async () => {
-  try {
-    imagen.value = response.data;
-    console.log(imagen.value);
-  } catch (error) {
-    console.error('Error al cargar productos:', error);
-  }
-})();
+ const imagen=ref([
+{
+  "imagenUrl":"https://bnetcmsus-a.akamaihd.net/cms/page_media/yo/YOHXG9OXPLXR1697594461718.png",
+},
+{
+  "imagenUrl":"https://bnetcmsus-a.akamaihd.net/cms/blog_thumbnail/z6/Z69HID4AX12Z1565217144858.jpg"
+},
+{
+  "imagenUrl":"https://blz-contentstack-images.akamaized.net/v3/assets/blt77f4425de611b362/blt6d7b0fd8453e72b9/646e720a71d9db111a265e8c/d4-open-graph_001.jpg"
+}
+
+ ]);
+
 </script>

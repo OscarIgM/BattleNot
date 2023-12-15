@@ -53,5 +53,33 @@ const router = createRouter({
 })
 
 
+router.beforeEach((to, from, next) => {
+  const store = useStore();
+  const isAuthenticated = store.getters.isAuthenticated;
+  const userRole = isAuthenticated ? store.getters.role : null;
+
+  if (!to.meta.requiresAuth) {
+    next();
+  } else {
+    if (!isAuthenticated) {
+      // Rutas protegidas que requieren autenticación, redirige al login si no está autenticado
+      next({ name: 'login' });
+    } else {
+      if ( (!to.meta.isAdmin && !to.meta.isUser)) {
+        // El usuario no tiene un rol válido o la ruta no tiene configurados roles
+        next(false);
+      } else {
+        if ( to.meta.isAdmin) {
+          // Usuario administrador accede a ruta de administrador
+          next();
+        } else if (to.meta.isUser) {
+          next();
+        } else {
+          next({ name: userRole === "ADMIN" ? 'HomeAdmin' : 'HomepageLogged' });
+        }
+      }
+    }
+  }
+});
 
 export default router

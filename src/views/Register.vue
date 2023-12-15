@@ -69,6 +69,7 @@ console.log("la data es ",response.data);
   } catch (error) {
     if (error.response) {
       console.error('Error de respuesta del servidor:', error.response.data);
+      window.alert("EMAIL EN USO");
       console.log('Respuesta completa del servidor:', error.response);
     } else if (error.request) {
       console.error('No se recibió respuesta del servidor');

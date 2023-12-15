@@ -3,7 +3,7 @@
     <Navbar></Navbar>
      <div class="col d-flex justify-content-center m-5">
       <ul>
-        <h1>Publicar nuevo juego para la blizzard</h1>
+        <h1>Publicar nuevo juego para la battlenot</h1>
         
           <form @submit.prevent="submitPublish">
             <div class="mb-3">
@@ -20,9 +20,8 @@
               <input v-model="gameDataToSend.price" type="number" class="form-control" id="price" required/>
             </div>
             <div class="mb-3">
-            <label for="imagen" class="form-label">Imagen</label>
-            <input @change="handleFileUpload" type="file" class="form-control" id="imagen" />
-            <button type="button" @click="uploadImage">Subir Imagen</button>
+            <label for="imagen" class="form-label">Imagen url</label>
+            <input type="text" class="form-control" id="imagen" />
           </div>
            
             <div class="d-grid gap-2">
@@ -39,7 +38,6 @@
 </template>
 
 <script setup>
-import NavBar from '../components/NavBar.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import { useStore } from 'vuex';

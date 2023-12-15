@@ -26,8 +26,17 @@
           </ul>
         </ul>
       </div>
+   
       
       <div class="user-options d-flex" v-else>
+        <div v-if="isAdmin">
+        <div class="user-icon"> 
+                 <RouterLink to="/agregarJuego" class="custom-link">
+          <i class="fas fa-user"></i> agregar Juegos 
+        </RouterLink>
+        </div>      
+
+      </div>
         <div class="user-icon"> 
                  <RouterLink to="/listarJuego" class="custom-link">
           <i class="fas fa-user"></i> Listar Juegos 
@@ -61,11 +70,12 @@
 import { ref, watchEffect } from 'vue';
 import { RouterLink } from 'vue-router';
 import {useStore} from 'vuex';
-
+import {jwtDecode} from 'jwt-decode';
 const store= useStore();
 
 const isAuthenticated = store.getters.isAuthenticated;
-
+const token=store.getters.token;
+const isAdmin = isAuthenticated ? jwtDecode(token).isAdmin : false;
 const logout = () => {
   store.dispatch('logout');
 };
