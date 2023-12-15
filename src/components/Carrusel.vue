@@ -30,14 +30,14 @@
 </style>
 <script setup>
 import { ref } from 'vue';
-import axios from '../axios-mock.js'; 
+import axios from 'axios'; 
  const imagen=ref([]);
 (async () => {
   try {
-    const response = await axios.get('/api/imagePagina');
     imagen.value = response.data;
     console.log(imagen.value);
   } catch (error) {
     console.error('Error al cargar productos:', error);
   }
-})();</script>
+})();
+</script>

@@ -7,7 +7,7 @@
         <h3>BATTLENOT</h3>  
         </a>
       </RouterLink>
-      <div class="user-icon-container" v-if="!isLoggedIn">
+      <div class="user-icon-container" v-if="!isAuthenticated">
         <ul class="nav-item dropdown ml-auto d-flex m-2">
           <IconProfile></IconProfile>
           <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" style="">
@@ -42,9 +42,11 @@
         </div>      
       
         <div class="user-option">
+          <RouterLink to="/userprofile">
           <i class="fas fa-user-circle"></i>  Perfil
+        </RouterLink>
         </div>
-        <!-- Agrega más opciones para usuarios autenticados aquí -->
+        
         <div class="user-option" @click="logout">
           <i class="fas fa-sign-out-alt"></i> Cerrar sesión
         </div>
@@ -58,23 +60,15 @@
 <script setup>
 import { ref, watchEffect } from 'vue';
 import { RouterLink } from 'vue-router';
+import {useStore} from 'vuex';
 
-// Verifica el estado de autenticación almacenado en localStorage
-const isLoggedIn = ref(localStorage.getItem('isLoggedIn') === 'true');
+const store= useStore();
 
-// Escucha el evento personalizado "authenticated"
-const onAuthenticated = (isAuthenticated) => {
-  isLoggedIn.value = isAuthenticated;
-};
-
+const isAuthenticated = store.getters.isAuthenticated;
 
 const logout = () => {
-  isLoggedIn.value = false;
-  // También actualiza el estado en el almacenamiento local
-  $router.push({name:'home'})
-  localStorage.setItem('isLoggedIn', 'false');
+  store.dispatch('logout');
 };
-
 
 import IconProfile from './icons/IconProfile.vue';
 </script>
